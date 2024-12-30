@@ -1,0 +1,139 @@
+Servlets :
+
+
+index.html 
+
+<!DOCTYPE html>
+<html>
+<body>
+<form action ="add">
+Enter 1st number : <input type="text" name="num1"><br>
+Enter 2nd number : <input type="text" name="num2"><br>
+<input type="submit">
+</form>
+</body>
+</html>
+
+AddServlet.java
+
+package com.testing;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.http.*;
+
+public class AddServlet extends HttpServlet{
+	//service is a method belongs to servlets life cycle
+	//Using req you can fetch req from client and with res you can send response to Client
+	public void service(HttpServletRequest req , HttpServletResponse resp) throws IOException {
+	
+		int i = Integer.parseInt(req.getParameter("num1"));
+		int j = Integer.parseInt(req.getParameter("num2"));
+		int k = i + j;
+		
+		//Now response from server to client is provided by the servlet response object
+		PrintWriter out = resp.getWriter() ;
+		out.println("Result is " + k);
+	}
+}
+
+web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+ <servlet>
+ <servlet-name>abc</servlet-name>
+ <servlet-class>com.testing.AddServlet</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+  <servlet-name>abc</servlet-name>
+  <url-pattern>/add</url-pattern>
+ </servlet-mapping>
+</web-app>
+
+Here above we have 3 files index.html , web.xml and AddServlet.java file .
+
+
+If a webpage is static ,
+                  Client ------>(req) ------------> Server(has file index.html)
+(displays in web) Client <-----(resp) <------------Server
+
+If a webpage is dynamic , 
+
+Servlet - is a java file which can take the req from the client on the internet and process the request and provides a response in the form of html page .
+WebContainer - web server - Apache Tomcat 
+
+Inside our webcontainer we have a special file as deployment descriptor - web.xml
+web.xml -----> which has the servlet name and mappings 
+
+Now the client requests for a abc.html file which is not there it needs to be built at runtime 
+                  Client ------>(dynamic req - requests for abc.html file) ------------> Server(has file index.html) ------->[Helper Application - Web Container which has servlets checks for java file which is mapped to this url pattern]
+(displays in web) Client <-----(resp) <------------Server
+
+-------------------------------------------------------------------------------------------------------------------------------
+Complete Web Page Flow :
+
+1)Client And Server
+  ->Client - The browser that makes request to the server .
+  ->Server - Computer that hosts your web appln and respond to client requests . This includes physical hardware and server software (Apache Tomcat).
+2)Web Server and web Container 
+  ->Web Server(Apache Tomcat) - Software that handles http requests and response .It serves static content like HTML , CSS , javascript and also interacts with the servlet .
+  ->Web Container - A part of the web server that manages servlets , lifecycle , mapping of urls to servlets .
+3)
+  ->As a web developer , we create a web project in Eclipse .
+  ->You package your project into a war file and deploy it into the web server (Apache Tomcat) . The server unpacks the war and makes the web application available .
+4)
+  ->When a user access your web application - http://localhost:8080/DemoApp/  , the webserver serves the index.html 
+5)
+By these lines it is stating that after clicking submit the request should go to /add request url with the below forms action = "add" .This num1 , num2 is the parameter which assigns a respective value .
+key-value pair .
+When the form is submitted the browser constructs the url with a query parameter ----- > http://localhost:8080/DemoApp/add?num1=5&num2=7
+ 
+<form action ="add">
+Enter 1st number : <input type="text" name="num1"><br>
+Enter 2nd number : <input type="text" name="num2"><br>
+<input type="submit">
+</form>
+
+we can retrieve these in our servlet , based on the key value pair assigned ----->
+It returns the value as a String .Request Parameters are extra information sent in the request .For HTTP servlets parameters are contained in the query String and it can get only one value .
+    
+int i = Integer.parseInt(req.getParameter("num1"));
+int j = Integer.parseInt(req.getParameter("num2"));
+ 
+Configuration :
+
+web.xml -> web container uses web.xml to map the URL to specific servlet class . (/add ---- > com.testing.AddServlet)
+6)
+->Servlet receives the request and extracts the parameter.
+->The servlet process the request .
+->The servlet generates the response and it sends it back to the client .
+
+GET and POST 
+
+get - request to get data from server (attributes display in url)
+post - to provide data to the server (attributes will not be displayed in url , hence it is secure)
+
+In add 2 nums example when we provide 2 inputs , it is we are providing input to the server (post) and after adding the sum we need to get that value in web page , that is (get) . 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Request Dispatcher :
+
+RequestDispatcher rd = req.getRequestDispatcher("square");
+rd.forward(req, resp);
+
+=>RequestDispatcher is an interface defines an object that can dispatch requests to a resource(another servlet , jsp or HTML file ) on the server.
+=>getRequestDispatcher method call gets a Request Dispatcher for the resource identified by the given path . Here it is square , it is the tag mentioned in servlet url pattern .
+=>forward(req, resp) , this method forwards the request and response from the current servlet to another servlet , which means the originla request is still in scope and can be accessed by the destination servlet .
+this forward internally forwards the request from one servlet to another ,It doesnt change the url .
+
+By using req object you can set set some attributes and this will be in req and you can forward req and response .And in another servlet with get attribute you can get the value .
+req.setAttribute("squarevalue" , k);
+int k = (int) req.getAttribute("squarevalue");
+
+Here it is the key - value pair ,
+squarevalue is the key and its associated value is k .
+
+
