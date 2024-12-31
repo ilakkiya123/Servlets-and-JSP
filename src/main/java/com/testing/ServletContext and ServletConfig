@@ -1,0 +1,30 @@
+package com.testing;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+
+//Servlet Context and Servlet Config  
+public class MyServlet extends HttpServlet {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+		PrintWriter out = resp.getWriter();
+		out.print("Hi ");
+		
+		ServletContext con = getServletContext();
+		String str = con.getInitParameter("name");
+		int age = Integer.parseInt(con.getInitParameter("age"));
+   
+//		ServletConfig config = getServletConfig();
+//		String str = config.getInitParameter("name");
+//		int age = Integer.parseInt(config.getInitParameter("age"));
+
+		out.println(str + " : " + age);
+	}
+}
+
