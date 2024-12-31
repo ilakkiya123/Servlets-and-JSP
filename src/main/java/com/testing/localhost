@@ -1,0 +1,22 @@
+Here local host is my local machine that is my currect laptop .
+
+C:\Users\Ilakkiya R>nslookup localhost
+Server:  UnKnown
+Address:  192.168.43.1
+
+Name:    localhost
+Addresses:  ::1
+          127.0.0.1
+
+::1 is for IPv6 
+127.0.0.1 for IPv4
+
+
+this is the host file located on our machine includes mappings of hostnames to ip address - C:\Windows\System32\drivers\etc\hosts .
+The traffic sent either to 127.0.0.1 or ::1 is looped back to the own computer network interface .
+
+localhost:8080/demo/
+
+localhost -> indicates that appln is running on your local machine .
+8080 -> port number on which your web server (Apache tomcat) is listening to the connections .
+/DemoApp ->Name of the project deployed on the server 
