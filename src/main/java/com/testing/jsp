@@ -37,14 +37,40 @@ add.jsp
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 JSP is nothing but an easy way to write java code and html in a single file . This jsp internally converts them into a servlet . 
-  
+
+Note : 
+Intention to create page - jsp
+Intention to process - servlet 
+
 4 important tags in jsp 
 directive           - <%@ page import = java.util.* ,java.util.Date %> //for multiple packages we can just include , 
 other declarations - <!% int i = 10  %>
 scriptlet          - <% %>
 expression         - <%="The value is : "%> 
 
-Note : 
-Intention to create page - jsp
-Intention to process - servlet 
 
+Example of these tags :
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "java.util.Scanner" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP 4 Tags</title>
+</head>
+<body bgcolor = "green">
+
+	<%! String name = "Arvind"; %>
+     <%
+     int num1 = Integer.parseInt(request.getParameter("num1"));
+     int num2 = Integer.parseInt(request.getParameter("num2"));
+     int sum = num1 + num2;
+     
+     /* out.println("The sum of the value is : " + sum); */
+     %>  
+     
+     <%="The sum of the value is : " + sum + " : "  + name%>
+</body>
+</html>
