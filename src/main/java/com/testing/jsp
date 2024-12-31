@@ -1,0 +1,50 @@
+Generally In java inside out.println(we can write html code to print )
+But In jsp Inside html file we write java code inside the tag %<>%
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<body>
+<form method = "GET" action="add.jsp">
+Enter 1st num : <input type = "text" name = "num1"><br>
+Enter 2nd num : <input type = "text" name = "num2"><br>
+<input type = "submit">
+</form>
+</body>
+</html>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+add.jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body bgcolor = "green">
+     <%
+     int num1 = Integer.parseInt(request.getParameter("num1"));
+     int num2 = Integer.parseInt(request.getParameter("num2"));
+     int sum = num1 + num2;
+     
+     out.println("The sum of the value is : " + sum);
+     %>  
+</body>
+</html>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JSP is nothing but an easy way to write java code and html in a single file . This jsp internally converts them into a servlet . 
+  
+4 important tags in jsp 
+directive           - <%@ page import = java.util.* ,java.util.Date %> //for multiple packages we can just include , 
+other declarations - <!% int i = 10  %>
+scriptlet          - <% %>
+expression         - <%="The value is : "%> 
+
+Note : 
+Intention to create page - jsp
+Intention to process - servlet 
+
