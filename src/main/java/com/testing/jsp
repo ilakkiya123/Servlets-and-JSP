@@ -1,3 +1,5 @@
+Note : To view the servlet file for the respective jsp file , you can view it in this path - C:\Users\Ilakkiya R\OneDrive\Desktop\Apache\apache-tomcat-10.0.27\work\Catalina\localhost\DemoApp1\org\apache\jsp
+
 Generally In java inside out.println(we can write html code to print )
 But In jsp Inside html file we write java code inside the tag %<>%
 
