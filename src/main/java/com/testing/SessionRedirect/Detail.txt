@@ -1,0 +1,12 @@
+Cookies 
+=>are small piece of data stored on the Client Browser .
+=>We can set or retrieve cookies before using redirect .
+=>The redirect doesnt affect cookies .
+
+Session 
+=>It is provided here to state by the apache tomcat .It is server side storage mechanisms.
+=>It allows us to store user specific data on multiple requests.
+
+sendRedirect -> redirects you to the new url mentioned inside the parameter .
+In above both sendRedirect tells us to move to the new url ,but session and cookies will continue to work as usual maintaining the state before and after the redirect .
+  
