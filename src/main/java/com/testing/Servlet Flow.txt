@@ -64,7 +64,7 @@ If a webpage is dynamic ,
 Servlet - is a java file which can take the req from the client on the internet and process the request and provides a response in the form of html page .
 WebContainer - web server - Apache Tomcat 
 
-Inside our webcontainer we have a special file as deployment descriptor - web.xml
+Inside our webcontainer we have a special file as deployment descriptor - web.xml (It is a blueprint for a web application)
 web.xml -----> which has the servlet name and mappings 
 
 Now the client requests for a abc.html file which is not there it needs to be built at runtime 
@@ -106,7 +106,7 @@ Configuration :
 
 web.xml -> web container uses web.xml to map the URL to specific servlet class . (/add ---- > com.testing.AddServlet)
 6)
-->Servlet receives the request and extracts the parameter.
+->Servlet receives the request and extracts the parameter in browser url.
 ->The servlet process the request .
 ->The servlet generates the response and it sends it back to the client .
 
