@@ -1,0 +1,22 @@
+package com.testing;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class SquareServlet extends HttpServlet{
+	
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+		
+		int square = Integer.parseInt(req.getParameter("sum"));
+
+		PrintWriter out = resp.getWriter();
+		square = square*square;
+		out.println("Square Value is : " + square);
+		
+		System.out.println("In square servlet ....");
+	}
+}
