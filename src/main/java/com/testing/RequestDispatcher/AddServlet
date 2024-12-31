@@ -1,1 +1,32 @@
+package com.testing;
+
+import java.io.IOException;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class AddServlet extends HttpServlet {
+    
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        int num1 = Integer.parseInt(req.getParameter("num1"));
+        int num2 = Integer.parseInt(req.getParameter("num2"));
+        int sum = num1 + num2;
+        
+        System.out.println("Sum is : " + sum);
+        
+//        //"k" - key , k
+        req.setAttribute("sumvalue" , sum);
+
+       RequestDispatcher rd = req.getRequestDispatcher("sq");
+       System.out.println("rd : " + rd);
+       System.out.println("req : " + req);
+       System.out.println("resp : " + resp);
+       
+       // this forward internally forwards the request from one servlet to another ,It doesnt change the url .
+//       rd.forward(req, resp);
+    }
+}
 
