@@ -30,3 +30,5 @@ public class AddServlet extends HttpServlet {
     }
 }
 
+
+//Once forward is written above we shouldnt use any println , instead we should use setAttribute to set the value and try to fetch in the destination path . 
