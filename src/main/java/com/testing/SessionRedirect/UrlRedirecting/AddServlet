@@ -14,9 +14,8 @@ public class AddServlet extends HttpServlet {
         int num1 = Integer.parseInt(req.getParameter("num1"));
         int num2 = Integer.parseInt(req.getParameter("num2"));
         int sum = num1 + num2;
-        
-        resp.sendRedirect("sq?sum="+sum);
 
-      
+//It mainly deals with do Get method as in browser it requires a url
+        resp.sendRedirect("sq?sum="+sum);
     }
 }
