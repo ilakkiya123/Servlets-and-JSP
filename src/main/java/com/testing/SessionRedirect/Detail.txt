@@ -9,8 +9,7 @@ Session
 
 sendRedirect -> redirects you to the new url mentioned inside the parameter .
 In above both sendRedirect tells us to move to the new url ,but session and cookies will continue to work as usual maintaining the state before and after the redirect .
-  
--------------------------------------------------------------------------------------------------------------------
+
 RealTime Scenerio :
 
 Session :
@@ -20,16 +19,3 @@ Session :
 Cookie :
 ==>Preferred Language on the website .
 ==>Stores data on the client side and is used for storing small piece of information like preference .
-
---------------------------------------------------------------------------------------------------------------------
-Session :
-=>Data is stored on the server side.
-=>Data is stored for a single session .
-=>Once the session ends the data is lost . (User logs out / session times out) .
-=>This is needed only when user is actively interacting with the application . This is useful for temporary data only .
-
-Cookies :
-=>Data is stored on the client side.
-=>Data is stored across multiple session .
-=>Even if the user closes the browser and comes back later , the data is still available .
-=>This is mainly for information that should persist (Preference).
