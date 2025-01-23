@@ -139,6 +139,11 @@ int k = (int) req.getAttribute("squarevalue");
 Here it is the key - value pair ,
 squarevalue is the key and its associated value is k .
 
+Servlet Cycle :
+init - service - destroy 
+
+Req Object will have all details which servlets need.
+Res Object will have all details which client need .
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Note :
 Servlet Mapping :
@@ -146,5 +151,8 @@ Servlet Mapping :
 
 RequestDispatcher rd = req.getRequestDispatcher("sq");
 //rd.forward(req, resp);
+
+HttpServletRequest req and HttpServletResponse resp these are the 2 interfaces and its implementation is provided by the tomcat .
+
 
 Here first rd object is created pointing to sq resource .But here with this path the SquareServlet will not be invoked .Servlet will check whether url pattern matching ,Since Request dispatcher didnt modify the source url in web it will not match .If and only if forward is called by rd object passing req and resp , then internal call to sq resource happens and that time the url pattern will match and SquareServlet gets invoked and further flow goes on .
