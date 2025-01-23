@@ -60,12 +60,15 @@ If a webpage is static ,
 (displays in web) Client <-----(resp) <------------Server
 
 If a webpage is dynamic , 
+Dynamic here means , that client wants to req for abc.html file but our defa file is index.html . abc.html file should rendered from the server on runtime .
 
-Servlet - is a java file which can take the req from the client on the internet and process the request and provides a response in the form of html page .
-WebContainer - web server - Apache Tomcat 
+Inside our server we have a helper application (web container) here it is apache , which checkes for the rendering , to provide that inside our webcontainer we have something called deployment descriptor (web.xml) .
 
 Inside our webcontainer we have a special file as deployment descriptor - web.xml
 web.xml -----> which has the servlet name and mappings 
+
+Servlet - is a java file which can take the req from the client on the internet and process the request and provides a response in the form of html page .
+WebContainer - web server - Apache Tomcat 
 
 Now the client requests for a abc.html file which is not there it needs to be built at runtime 
                   Client ------>(dynamic req - requests for abc.html file) ------------> Server(has file index.html) ------->[Helper Application - Web Container which has servlets checks for java file which is mapped to this url pattern]
