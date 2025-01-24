@@ -127,7 +127,7 @@ Request Dispatcher :
 RequestDispatcher rd = req.getRequestDispatcher("square");
 rd.forward(req, resp);
 
-=>RequestDispatcher is an interface defines an object that can dispatch requests to a resource(another servlet , jsp or HTML file ) on the server.
+=>RequestDispatcher is an interface defines an object that can dispatch requests to a resource(another servlet , jsp or HTML file ) on the server.It will prepare the req to provide to the resource("sq") , this req contains the request made by the client .
 =>getRequestDispatcher method call gets a Request Dispatcher for the resource identified by the given path . Here it is square , it is the tag mentioned in servlet url pattern .
 =>forward(req, resp) , this method forwards the request and response from the current servlet to another servlet , which means the originla request is still in scope and can be accessed by the destination servlet .
 this forward internally forwards the request from one servlet to another ,It doesnt change the url .
