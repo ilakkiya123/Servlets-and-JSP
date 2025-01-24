@@ -98,3 +98,5 @@ out (JspWriter) ~ PrintWriter object
 session - HttpSession
 application - (ServletContext)
 config - (ServletConfig)
+
+pageContext.setAttribute("name" , "Ilakkiya" , PageContext.SESSION_SCOPE);
