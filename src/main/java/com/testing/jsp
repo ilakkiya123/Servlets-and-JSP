@@ -47,7 +47,7 @@ Intention to process - servlet
 
 4 important tags in jsp 
 directive           - <%@ page import = java.util.* ,java.util.Date %> //for multiple packages we can just include , 
-other declarations - <!% int i = 10  %>
+other declarations - <!% int i = 10  %>   [Inside class and outside service ]
 scriptlet          - <% %>
 expression         - <%="The value is : "%> 
 
