@@ -77,3 +77,24 @@ Example of these tags :
      <%="The sum of the value is : " + sum + " : "  + name%>
 </body>
 </html>
+
+-----------------------------------------------------------------------------
+JSP Directive :
+
+<%@  %>  this is directive 
+
+page directive :
+
+<%@ page value= "" %>
+<%@ include value = "" %>
+<%@ taglib uri="uri"  prefix = "fx" %>
+
+BuiltIn Object :
+
+request (HttpServletRequest)
+response (HttpServletResponse)
+pageContext (PageContext)
+out (JspWriter) ~ PrintWriter object
+session - HttpSession
+application - (ServletContext)
+config - (ServletConfig)
