@@ -82,7 +82,7 @@ web.xml
 </web-app>
 
 Note :
-servletContext - if some value is general for many class we can use context
+servletContext - The value is general for many class we can use servletContext
 servletConfig :
 ==>It is  specific to some class we can use init param within that specific servlet and in class we can use config .
-==>if we have 5 servlets in total we get 5 servlet objects .
+==>if we have 5 servlets class in total we get 5 servlet objects .
